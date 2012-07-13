@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newTemplate</class>
+ <widget class="QDialog" name="newTemplate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>317</width>
+    <height>170</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>170</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
+    <height>170</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>New Template</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Name:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Type:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBoxType">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <item>
+        <property name="text">
+         <string>HTTP/FTP</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/ftp.png</normaloff>:/icon/uri/ftp.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Multi HTTP/FTP</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/http.png</normaloff>:/icon/uri/http.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Torrent</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/bittorrent.png</normaloff>:/icon/uri/bittorrent.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MagnetLink</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/magnet.png</normaloff>:/icon/uri/magnet.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MetaLink</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/metalink.png</normaloff>:/icon/uri/metalink.png</iconset>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Clone from:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_cloneFrom">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <item>
+        <property name="text">
+         <string>Default</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_OK">
+       <property name="text">
+        <string>OK</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>comboBoxType</tabstop>
+  <tabstop>comboBox_cloneFrom</tabstop>
+  <tabstop>pushButton_OK</tabstop>
+  <tabstop>pushButton_Cancel</tabstop>
+ </tabstops>
+ <resources>
+  <include location="Aria2cRemote.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_Cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>newTemplate</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

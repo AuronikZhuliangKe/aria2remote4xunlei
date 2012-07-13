@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Aria2cRemote</class>
+ <widget class="QMainWindow" name="Aria2cRemote">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>617</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Aria2cRemote</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Aria2cRemote.qrc">
+    <normaloff>:/icon/logo.png</normaloff>:/icon/logo.png</iconset>
+  </property>
+  <property name="Language" stdset="0">
+   <string>English</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>617</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDownload">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <addaction name="action_AddURI"/>
+    <addaction name="actionAdd_HTTP_FTP"/>
+    <addaction name="actionAdd_Multi_HTTP_FTP"/>
+    <addaction name="actionAdd_Torrent"/>
+    <addaction name="actionAdd_MagnetLink"/>
+    <addaction name="actionAdd_Metalink"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="action_Help"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAbout_Qt"/>
+   </widget>
+   <widget class="QMenu" name="menuOption">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuLanguages">
+     <property name="title">
+      <string>Languages</string>
+     </property>
+    </widget>
+    <addaction name="actionOption"/>
+    <addaction name="actionGlobal_Options"/>
+    <addaction name="actionGeoIP_update"/>
+    <addaction name="separator"/>
+    <addaction name="menuLanguages"/>
+   </widget>
+   <widget class="QMenu" name="menuAction">
+    <property name="title">
+     <string>Action</string>
+    </property>
+    <addaction name="action_Start"/>
+    <addaction name="actionStart_all"/>
+    <addaction name="action_Pause"/>
+    <addaction name="actionPause_all"/>
+    <addaction name="action_Remove"/>
+    <addaction name="actionPurge"/>
+    <addaction name="actionPower_off_Aria2c"/>
+    <addaction name="separator"/>
+    <addaction name="actionForce_pause"/>
+    <addaction name="actionForce_pause_all"/>
+    <addaction name="actionForce_remove"/>
+    <addaction name="actionForce_power_off_Aria2c"/>
+   </widget>
+   <addaction name="menuDownload"/>
+   <addaction name="menuAction"/>
+   <addaction name="menuOption"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string notr="true"/>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_AddURI"/>
+   <addaction name="actionAdd_HTTP_FTP"/>
+   <addaction name="actionAdd_Multi_HTTP_FTP"/>
+   <addaction name="actionAdd_Torrent"/>
+   <addaction name="actionAdd_MagnetLink"/>
+   <addaction name="actionAdd_Metalink"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string notr="true">toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Start"/>
+   <addaction name="actionStart_all"/>
+   <addaction name="action_Pause"/>
+   <addaction name="actionPause_all"/>
+   <addaction name="action_Remove"/>
+   <addaction name="actionPurge"/>
+   <addaction name="actionPower_off_Aria2c"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string notr="true">toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionForce_pause"/>
+   <addaction name="actionForce_pause_all"/>
+   <addaction name="actionForce_remove"/>
+   <addaction name="actionForce_power_off_Aria2c"/>
+  </widget>
+  <action name="action_AddURI">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/folder.png</normaloff>:/icon/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;URI...</string>
+   </property>
+   <property name="iconText">
+    <string>Add URI</string>
+   </property>
+   <property name="toolTip">
+    <string>Add URI</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/logo.png</normaloff>:/icon/logo.png</iconset>
+   </property>
+   <property name="text">
+    <string>About...</string>
+   </property>
+  </action>
+  <action name="action_Help">
+   <property name="text">
+    <string>&amp;Help</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/qtlogo.png</normaloff>:/icon/qtlogo.png</iconset>
+   </property>
+   <property name="text">
+    <string>About &amp;Qt...</string>
+   </property>
+  </action>
+  <action name="action_Pause">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/pause.png</normaloff>:/icon/toolbars/pause.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pause</string>
+   </property>
+  </action>
+  <action name="action_Remove">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/remove.png</normaloff>:/icon/toolbars/remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Remove</string>
+   </property>
+  </action>
+  <action name="actionAdd_Torrent">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/uri/bittorrent.png</normaloff>:/icon/uri/bittorrent.png</iconset>
+   </property>
+   <property name="text">
+    <string>Torrent...</string>
+   </property>
+   <property name="iconText">
+    <string>Add Torrent</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Torrent</string>
+   </property>
+  </action>
+  <action name="actionAdd_HTTP_FTP">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/uri/ftp.png</normaloff>:/icon/uri/ftp.png</iconset>
+   </property>
+   <property name="text">
+    <string>HTTP/FTP...</string>
+   </property>
+   <property name="iconText">
+    <string>Add HTTP/FTP</string>
+   </property>
+   <property name="toolTip">
+    <string>Add HTTP/FTP</string>
+   </property>
+  </action>
+  <action name="actionAdd_Multi_HTTP_FTP">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/uri/http.png</normaloff>:/icon/uri/http.png</iconset>
+   </property>
+   <property name="text">
+    <string>Multi HTTP/FTP...</string>
+   </property>
+   <property name="iconText">
+    <string>Add Multi HTTP/FTP</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Multi HTTP/FTP</string>
+   </property>
+  </action>
+  <action name="actionAdd_Metalink">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/uri/metalink.png</normaloff>:/icon/uri/metalink.png</iconset>
+   </property>
+   <property name="text">
+    <string>Metalink...</string>
+   </property>
+   <property name="iconText">
+    <string>Add Metalink</string>
+   </property>
+   <property name="toolTip">
+    <string>Add Metalink</string>
+   </property>
+  </action>
+  <action name="actionAdd_MagnetLink">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/uri/magnet.png</normaloff>:/icon/uri/magnet.png</iconset>
+   </property>
+   <property name="text">
+    <string>MagnetLink...</string>
+   </property>
+   <property name="iconText">
+    <string>Add MagnetLink</string>
+   </property>
+   <property name="toolTip">
+    <string>Add MagnetLink</string>
+   </property>
+  </action>
+  <action name="actionOption">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/gear.png</normaloff>:/icon/gear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Options...</string>
+   </property>
+  </action>
+  <action name="action_Start">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/unpause.png</normaloff>:/icon/toolbars/unpause.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStart_all">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/unpauseall.png</normaloff>:/icon/toolbars/unpauseall.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start all</string>
+   </property>
+  </action>
+  <action name="actionPause_all">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/pauseall.png</normaloff>:/icon/toolbars/pauseall.png</iconset>
+   </property>
+   <property name="text">
+    <string>Pause all</string>
+   </property>
+  </action>
+  <action name="actionPurge">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/purgedownloadresult.png</normaloff>:/icon/toolbars/purgedownloadresult.png</iconset>
+   </property>
+   <property name="text">
+    <string>Purge</string>
+   </property>
+  </action>
+  <action name="actionPower_off_Aria2c">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/poweroff.png</normaloff>:/icon/toolbars/poweroff.png</iconset>
+   </property>
+   <property name="text">
+    <string>Power off Aria2c</string>
+   </property>
+  </action>
+  <action name="actionForce_pause">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/forcepause.png</normaloff>:/icon/toolbars/forcepause.png</iconset>
+   </property>
+   <property name="text">
+    <string>Force pause</string>
+   </property>
+  </action>
+  <action name="actionForce_pause_all">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/forcepauseall.png</normaloff>:/icon/toolbars/forcepauseall.png</iconset>
+   </property>
+   <property name="text">
+    <string>Force pause all</string>
+   </property>
+  </action>
+  <action name="actionForce_remove">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/forceremove.png</normaloff>:/icon/toolbars/forceremove.png</iconset>
+   </property>
+   <property name="text">
+    <string>Force remove</string>
+   </property>
+  </action>
+  <action name="actionForce_power_off_Aria2c">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/toolbars/forcepoweroff.png</normaloff>:/icon/toolbars/forcepoweroff.png</iconset>
+   </property>
+   <property name="text">
+    <string>Force power off Aria2c</string>
+   </property>
+  </action>
+  <action name="actionGlobal_Options">
+   <property name="icon">
+    <iconset resource="Aria2cRemote.qrc">
+     <normaloff>:/icon/gear.png</normaloff>:/icon/gear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Global options...</string>
+   </property>
+  </action>
+  <action name="actionDefault">
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="actionGeoIP_update">
+   <property name="text">
+    <string>GeoIP update</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Aria2cRemote.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Exit</sender>
+   <signal>triggered()</signal>
+   <receiver>Aria2cRemote</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_AddURI</sender>
+   <signal>triggered()</signal>
+   <receiver>Aria2cRemote</receiver>
+   <slot>on_action_AddURI()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_action_AddURI()</slot>
+ </slots>
+</ui>

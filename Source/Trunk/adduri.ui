@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddURI</class>
+ <widget class="QDialog" name="AddURI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>615</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Add URI</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/icon/bookmark.ico</normaloff>:/icon/bookmark.ico</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>&amp;Type:</string>
+       </property>
+       <property name="buddy">
+        <cstring>comboBox_Type</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_Type">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <item>
+        <property name="text">
+         <string>HTTP/FTP</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/ftp.png</normaloff>:/icon/uri/ftp.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Multi HTTP/FTP</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/http.png</normaloff>:/icon/uri/http.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Torrent</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/bittorrent.png</normaloff>:/icon/uri/bittorrent.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MagnetLink</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/magnet.png</normaloff>:/icon/uri/magnet.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Metalink</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Aria2cRemote.qrc">
+          <normaloff>:/icon/uri/metalink.png</normaloff>:/icon/uri/metalink.png</iconset>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButton_Add">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Delete">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Modify">
+         <property name="text">
+          <string>Modify</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTreeWidget" name="treeWidget">
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="rootIsDecorated">
+      <bool>true</bool>
+     </property>
+     <attribute name="headerMinimumSectionSize">
+      <number>50</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Type</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>URI</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Template</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_GlobalOptions">
+       <property name="text">
+        <string>Global Options</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Template">
+       <property name="text">
+        <string>Templates</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>803</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_OK">
+       <property name="text">
+        <string>OK</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>comboBox_Type</tabstop>
+  <tabstop>pushButton_Add</tabstop>
+  <tabstop>pushButton_Delete</tabstop>
+  <tabstop>pushButton_Modify</tabstop>
+  <tabstop>treeWidget</tabstop>
+  <tabstop>pushButton_GlobalOptions</tabstop>
+  <tabstop>pushButton_Template</tabstop>
+  <tabstop>pushButton_OK</tabstop>
+  <tabstop>pushButton_Cancel</tabstop>
+ </tabstops>
+ <resources>
+  <include location="Aria2cRemote.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_OK</sender>
+   <signal>clicked()</signal>
+   <receiver>AddURI</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>523</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>454</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>AddURI</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>604</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>421</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Add</sender>
+   <signal>clicked()</signal>
+   <receiver>AddURI</receiver>
+   <slot>Add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>441</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Delete</sender>
+   <signal>clicked()</signal>
+   <receiver>AddURI</receiver>
+   <slot>Delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>512</x>
+     <y>23</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>258</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Modify</sender>
+   <signal>clicked()</signal>
+   <receiver>AddURI</receiver>
+   <slot>Modify()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_Type</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>AddURI</receiver>
+   <slot>Type_Change(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>109</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>GlobalOptions()</slot>
+  <slot>Add()</slot>
+  <slot>Delete()</slot>
+  <slot>Modify()</slot>
+  <slot>Type_Change(int)</slot>
+ </slots>
+</ui>
