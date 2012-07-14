@@ -402,8 +402,6 @@ void Aria2cRemote::on_actionAdd_HTTP_FTP_triggered()
     {
         QMap<QString, Variant> vCurrentParam;
         QString sUrl(add.GetURI());
-        //QString test = "aria2c --out 'Elend.-.[A.World.In.Their.Screams].×¨¼­.(FLAC).flac' --header 'Cookie:Hm_lvt_0c1c43b34eb3e7a49df911ff70eab744=1342008696370; _xltj=34a1342012023385b2c; lsessionid=F51657593D24F4E3E849EBD068D6A0CF6E647A0CABD9D614D12AA6DBBF1F4782F1FFDD9901298778E2B07CBCE543717A435EF137610F665A0A63322063B4268201EB80F621B63A185DC249ECD1858D42; luserid=227200303; lx_login_u=columco@gmail.com; lx_login_auto=1; gdriveid=B2A519E5F8C2900DB2D216558DAD10BF; sessionid=F51657593D24F4E3E849EBD068D6A0CF6E647A0CABD9D614D12AA6DBBF1F4782F1FFDD9901298778E2B07CBCE543717A435EF137610F665A0A63322063B4268201EB80F621B63A185DC249ECD1858D42; userid=227200303; usrname=817688310; usernewno=817688310; usrtype=1; nickname=columco; usernick=columco; vipstate=1; in_xl=0; lx_sessionid=F51657593D24F4E3E849EBD068D6A0CF6E647A0CABD9D614D12AA6DBBF1F4782F1FFDD9901298778E2B07CBCE543717A435EF137610F665A0A63322063B4268201EB80F621B63A185DC249ECD1858D42; dl_enable=1; lx_login=227200303; vip_level=1; vip_paytype=4; vip_isvip=1; vip_is_good_number=0; dl_size=10; dl_num=3; dl_expire=7; lx_nf_all=page_check_all%3Dcommtask%26fltask_all_guoqi%3D0%26class_check%3D0%26page_check%3Dtask%26fl_page_id%3D0%26class_check_new%3D0%26set_tabb_status%3D4; rw_list_open=1; queryTime=1' 'http://gdl.lixian.vip.xunlei.com/download?fid=uzrWyoSxocaUuthPB80btV3rIB1HiR0UAAAAAKzsMxDliO1uHzZzP6gd+gqaVEU4&mid=666&threshold=150&tid=C2C13D91150C30240212B219F4BAFC1A&srcid=4&verno=1&g=ACEC3310E588ED6E1F36733FA81DFA0A9A544538&scn=c8&i=D44040817CB72F345493D9D41955D06F&t=4&ui=227200303&ti=51709221249&s=337480007&m=0&n=010D548A3B2E2D2E5B201FB330726C642E285FCA0B686569724F62872D65616D733C1F33F7BCAD2E28277DA51C292E666C0052E45F00000000&ff=0&co=56C723498AD876F8388DB47617451764&cm=1'";
-        //qDebug() << "TEST:" << test.length();
         util::deletePrePostSpace(sUrl);
         if (sUrl.size() > 0)
         {
@@ -412,23 +410,23 @@ void Aria2cRemote::on_actionAdd_HTTP_FTP_triggered()
             Download d;
 
             //TODO: Added parser for xunlei url
-            QTextStream stream(stdout);
+            //QTextStream stream(stdout);
             QString str = sUrl;
-            stream << "Total:" << str.length() << endl;
+            //stream << "Total:" << str.length() << endl;
             QRegExp rx("--([a-z]+)\\s'(.+)'");
             rx.setMinimal(true);
             int pos = 0;
             int cur = 0;
             while ((pos = rx.indexIn(str, pos)) != -1) {
-                 stream << "Length:" <<rx.cap(1).length() << " " << rx.cap(1) << endl;
-                 stream << "Length:" <<rx.cap(2).length() << " " << rx.cap(2) << endl;
+                 //stream << "Length:" <<rx.cap(1).length() << " " << rx.cap(1) << endl;
+                 //stream << "Length:" <<rx.cap(2).length() << " " << rx.cap(2) << endl;
                  vCurrentParam[rx.cap(1)] = rx.cap(2);
                  pos += rx.matchedLength();
                  cur = pos;
             }
             QRegExp rxU("'(.+)'");
             if(rxU.indexIn(str, cur) != -1){
-                stream << "Length:" <<rxU.cap(1).length() << " " << rxU.cap(1) << endl;
+                //stream << "Length:" <<rxU.cap(1).length() << " " << rxU.cap(1) << endl;
                 sUrl = rxU.cap(1);
             }
             //
