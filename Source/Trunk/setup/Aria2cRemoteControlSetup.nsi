@@ -112,12 +112,12 @@ SectionEnd
 
 Function un.onUninstSuccess
   HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "A(z) $(^Name) sikeresen el lett távolítva a számítógépérõl."
+  MessageBox MB_ICONINFORMATION|MB_OK "Ariac2Remote was successfully removed."
 FunctionEnd
 
 Function un.onInit
 !insertmacro MUI_UNGETLANGUAGE
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Biztosan teljesen el szeretné távolítani a(z) $(^Name)-t és az annak összes összetevõjét?" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Do you want to uninstall ariac2remote?" IDYES +2
   Abort
 FunctionEnd
 
