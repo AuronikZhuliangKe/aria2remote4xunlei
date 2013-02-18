@@ -8,6 +8,7 @@
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Aria2cRemoteControl.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
+!define PRODUCT_STARTUP_RUN_KEY "Software\Microsoft\Windows\CurrentVersion\Run"
 
 SetCompressor /SOLID lzma
 
@@ -56,7 +57,16 @@ InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 
+RequestExecutionLevel admin
+
 Function .onInit
+UserInfo::GetAccountType
+pop $0
+${If} $0 != "admin" ;Require admin rights on NT4+
+    MessageBox mb_iconstop "Administrator rights required!"
+    SetErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
+    Quit
+${EndIf}
   !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
@@ -73,6 +83,7 @@ Section "MainSection" SEC01
   File "libgcc_s_dw2-1.dll"
   File "Aria2cRemoteControl.exe"
   File "QtXml4.dll"
+  File "aria2c.exe"
   
   CreateDirectory "$INSTDIR\imageformats"
   SetOutPath "$INSTDIR\imageformats"
@@ -108,6 +119,7 @@ Section -Post
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_STARTUP_RUN_KEY}" "Aria2" "$INSTDIR\aria2c.exe --enable-rpc=true --rpc-listen-all=true --dir=$PROFILE\Downloads"
 SectionEnd
 
 Function un.onUninstSuccess
@@ -137,6 +149,7 @@ Section Uninstall
   Delete "$INSTDIR\QtCore4.dll"
   Delete "$INSTDIR\QtGui4.dll"
   Delete "$INSTDIR\QtNetwork4.dll"
+  Delete "$INSTDIR\aria2c.exe"
 
   Delete "$SMPROGRAMS\${PRODUCT_NAME}\Uninstall.lnk"
   Delete "$SMPROGRAMS\${PRODUCT_NAME}\Website.lnk"
@@ -151,5 +164,6 @@ Section Uninstall
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
+  DeleteRegValue HKLM "Software\Microsoft\Windows\CurrentVersion\Run" "Aria2"
   SetAutoClose true
 SectionEnd
