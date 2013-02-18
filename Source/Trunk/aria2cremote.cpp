@@ -1201,7 +1201,7 @@ void Aria2cRemote::ListViewItemClicked(QTreeWidgetItem *item, int value)
         URI_STATUS status = dl.list.getiStatus();
         if (item == dl.item)
         {
-            bUnPause = (status == STATUS_PAUSED);
+            bUnPause = ((status == STATUS_PAUSED) || (status == STATUS_ERROR));
             bPause = (status == STATUS_ACTIVE);
             bRemove = true;
         }
